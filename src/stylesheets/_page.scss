@@ -1,21 +1,22 @@
 html {
   height: 100vh;
-  background: url('https://es.wallpaperengine.net/images/6b2cea90-0a3d-11ea-ae1e-998674379039.jpg')
-    repeat;
+  // background: url('https://es.wallpaperengine.net/images/6b2cea90-0a3d-11ea-ae1e-998674379039.jpg')
+  //   repeat;
   background: url('https://images.alphacoders.com/876/876589.jpg') repeat;
+  background-color: black;
   background-size: cover;
   background-position-y: bottom;
   background-position-x: center;
   background-attachment: fixed;
   scroll-behavior: smooth;
   font-family: $font-family;
+  text-align: center;
 }
 
 * {
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
-  text-align: center;
 }
 
 // .main {

@@ -2,7 +2,8 @@ import React from 'react';
 import CharacterCard from './CharacterCard';
 
 const CharacterList = (props) => {
-  const characterData = props.characters.map((character, index) => {
+  const characters = props.characters();
+  const characterData = characters.map((character, index) => {
     return (
       <CharacterCard
         key={index}

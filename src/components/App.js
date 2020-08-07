@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import getDataFromApi from '../services/Api';
 import Header from './Header';
 import Filters from './Filters';
@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
+    this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
     this.state = {
       characters: [],
       inputValue: '',
@@ -21,7 +22,7 @@ class App extends React.Component {
   componentDidMount() {
     getDataFromApi().then((data) => {
       this.setState({ characters: data });
-      console.log(data);
+      // console.log(data);
     });
   }
 
@@ -31,30 +32,54 @@ class App extends React.Component {
 
   renderFilteredCharacters() {
     return this.state.characters.filter((character) => {
-      return character.name.includes(this.state.inputValue);
+      return character.name
+        .toLowerCase()
+        .includes(this.state.inputValue.toLowerCase());
     });
   }
 
-  //   renderCharacterDetail(props) {
-  // const charactersDetails = this.state.characters.
-  //   }
+  renderCharacterDetail(props) {
+    // console.log(props);
+    const characterId = parseInt(props.match.params.characterId);
+    const character = this.state.characters.find((character) => {
+      console.log(character.id, characterId);
+      return character.id === characterId;
+    });
+    if (character) {
+      return (
+        <CharacterDetail
+          id={character.id}
+          name={character.name}
+          imgUrl={character.image}
+          species={character.species}
+          status={character.status}
+          origin={character.origin.name}
+          episode={character.episode.length}
+        />
+      );
+    }
+  }
 
   render() {
+    // console.log(this.state);
     return (
       <div className="App">
         <Header />
-        <main className="main">
-          <Filters
-            handleInputChange={this.handleInputChange}
-            inputValue={this.state.inputValue}
-          />
-          <CharacterList characters={this.renderFilteredCharacters} />
-          {/* <Switch>
-            <Route> */}
-          <CharacterDetail />
-          {/* </Route>
-          </Switch> */}
-        </main>
+        <Route exact path="/">
+          <main className="main">
+            <Filters
+              handleInputChange={this.handleInputChange}
+              inputValue={this.state.inputValue}
+            />
+            <CharacterList characters={this.renderFilteredCharacters} />
+          </main>
+        </Route>
+        <Switch>
+          <Route
+            path="/CharacterDetail/:characterId"
+            render={this.renderCharacterDetail}
+          ></Route>
+        </Switch>
       </div>
     );
   }

@@ -1,8 +1,15 @@
 import React from 'react';
 
 const Filter = (props) => {
-  const getInputValue = (ev) => {
+  const handleInputValue = (ev) => {
     props.handleInputChange(ev.target.value);
+  };
+
+  const inputEnterHandler = (ev) => {
+    let keyCode = ev.keyCode;
+    if (keyCode === 13) {
+      ev.preventDefault();
+    }
   };
 
   return (
@@ -14,7 +21,8 @@ const Filter = (props) => {
             className="form__input"
             value={props.inputValue}
             placeholder="Rick"
-            onChange={getInputValue}
+            onChange={handleInputValue}
+            onKeyDown={inputEnterHandler}
           />
         </label>
       </form>

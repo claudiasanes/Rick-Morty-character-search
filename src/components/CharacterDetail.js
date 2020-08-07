@@ -1,35 +1,50 @@
-import React from 'react';
+import React, { useImperativeHandle } from 'react';
+import { Link } from 'react-router-dom';
 
-class CharacterDetail extends React.Component {
-  render() {
-    return (
-      <section className="details">
-        <div className="character__details">
-          <div className="character__details-img">
-            <img src="vvv" alt="vvv" />
-          </div>
+const CharacterDetail = (props) => {
+  const episodeLength = props.episode;
 
-          <div className="character__details--info">
-            <h2 className="character__details--name">hola</h2>
-            <ul className="character__details--ul">
-              <li className="character__details--species">
-                <h3>Species:</h3>
-              </li>
-              <li className="character__details--origin">
-                <h3>Origin:</h3>
-              </li>
-              <li className="character__details--episode">
-                <h3>Number of episodes:</h3>
-              </li>
-              <li className="character__details--status">
-                <h3>Status:</h3>
-              </li>
-            </ul>
+  // console.log(props);
+  return (
+    <section className="details">
+      <Link to="/" className="close">
+        Go back
+        <span className="modal__close icon fas fa-times"></span>
+      </Link>
+      <div className="character__details">
+        <div>
+          <h2 className="character__details--name">{props.name}</h2>
+          <div className="character__details__img-container">
+            <img src={props.imgUrl} alt={props.name} />
           </div>
         </div>
-      </section>
-    );
-  }
-}
+
+        <div className="character__details--info">
+          <ul className="character__details--ul">
+            <li className="character__details--li">
+              <h3 className="character__details--tittle">Species:</h3>
+              {props.species}
+            </li>
+            <li className="character__details--li">
+              <h3 className="character__details--tittle">Origin:</h3>{' '}
+              {props.origin}
+            </li>
+            <li className="character__details--li">
+              <h3 className="character__details--tittle">
+                Number of episodes:
+              </h3>
+              {props.episode}
+              {/* {episodeLength.length} */}
+            </li>
+            <li className="character__details--li">
+              <h3 className="character__details--tittle">Status:</h3>
+              {props.status}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default CharacterDetail;

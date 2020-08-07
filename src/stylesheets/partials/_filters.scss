@@ -1,0 +1,12 @@
+.form__input {
+  width: 300px;
+  padding: 8px 20px;
+  margin: 56px 0px 0px;
+  background-color: $color-secondary;
+  border: none;
+  border-radius: 100px;
+
+  &:focus {
+    outline: none;
+  }
+}
