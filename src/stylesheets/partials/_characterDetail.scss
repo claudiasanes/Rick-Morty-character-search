@@ -1,19 +1,31 @@
 .details {
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: flex-end;
-  //   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   margin: 40px auto;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
 .close {
   width: 40px;
   height: 40px;
-  padding: 8px 20px;
+  line-height: 40px;
+  // padding: 20px 20px;
   background-color: $color-secondary;
   border-radius: 50px;
-  text-align: left;
-  position: relative;
+  text-align: center;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  font-weight: 900;
+  color: black;
 }
 .icon {
   width: 20px;

@@ -11,12 +11,13 @@ html {
   scroll-behavior: smooth;
   font-family: $font-family;
   text-align: center;
-}
 
-* {
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style-type: none;
+  * {
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    cursor: url('../images/cursor.png'), auto;
+  }
 }
 
 // .main {
@@ -24,3 +25,8 @@ html {
 //   position: relative;
 //   width: 100vw;
 // }
+
+.app__container--text {
+  font-size: 40px;
+  color: white;
+}

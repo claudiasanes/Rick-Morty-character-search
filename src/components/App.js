@@ -42,22 +42,20 @@ class App extends React.Component {
     // console.log(props);
     const characterId = parseInt(props.match.params.characterId);
     const character = this.state.characters.find((character) => {
-      console.log(character.id, characterId);
+      // console.log(character.id, characterId);
       return character.id === characterId;
     });
-    if (character) {
-      return (
-        <CharacterDetail
-          id={character.id}
-          name={character.name}
-          imgUrl={character.image}
-          species={character.species}
-          status={character.status}
-          origin={character.origin.name}
-          episode={character.episode.length}
-        />
-      );
-    }
+    return (
+      <CharacterDetail
+        id={character.id}
+        name={character.name}
+        imgUrl={character.image}
+        species={character.species}
+        status={character.status}
+        origin={character.origin.name}
+        episode={character.episode.length}
+      />
+    );
   }
 
   render() {

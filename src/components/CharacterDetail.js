@@ -2,17 +2,14 @@ import React, { useImperativeHandle } from 'react';
 import { Link } from 'react-router-dom';
 
 const CharacterDetail = (props) => {
-  const episodeLength = props.episode;
-
   // console.log(props);
   return (
     <section className="details">
-      <Link to="/" className="close">
-        Go back
-        <span className="modal__close icon fas fa-times"></span>
-      </Link>
       <div className="character__details">
-        <div>
+        <div className="left-container">
+          <Link to="/" className="close">
+            X{/* <span className="modal__close icon fas fa-times">X</span> */}
+          </Link>
           <h2 className="character__details--name">{props.name}</h2>
           <div className="character__details__img-container">
             <img src={props.imgUrl} alt={props.name} />
