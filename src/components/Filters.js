@@ -18,6 +18,7 @@ const Filter = (props) => {
         <label htmlFor="filterName" className="form__label">
           <input
             id="filterName"
+            type="text"
             className="form__input"
             value={props.inputValue}
             placeholder="Rick"
@@ -25,6 +26,18 @@ const Filter = (props) => {
             onKeyDown={inputEnterHandler}
           />
         </label>
+        {/* <label htmlFor="checkbox">
+          <input
+            onChange={handleSort}
+            type="checkbox"
+            id="chackbox"
+            name="sort"
+            value="sort"
+            checked={props.sortCharacter}
+            defaultChecked={isSortChecked}
+          />
+          Sort alphabetically
+        </label> */}
       </form>
     </section>
   );

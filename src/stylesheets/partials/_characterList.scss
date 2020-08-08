@@ -5,3 +5,25 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.dont-exist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item__container--text {
+  margin: 40px;
+  color: $color-terciary;
+  font-size: 40px;
+}
+
+.empty-state-container {
+  text-align: center;
+  width: 250px;
+}
+
+.empty-state {
+  width: 100%;
+}
