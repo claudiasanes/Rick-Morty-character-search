@@ -6,10 +6,7 @@ const Filter = (props) => {
   };
 
   const inputEnterHandler = (ev) => {
-    let keyCode = ev.keyCode;
-    if (keyCode === 13) {
-      ev.preventDefault();
-    }
+    ev.preventDefault();
   };
 
   return (
@@ -21,23 +18,11 @@ const Filter = (props) => {
             type="text"
             className="form__input"
             value={props.inputValue}
-            placeholder="Rick"
+            placeholder="Search"
             onChange={handleInputValue}
-            onKeyDown={inputEnterHandler}
+            onSubmit={inputEnterHandler}
           />
         </label>
-        {/* <label htmlFor="checkbox">
-          <input
-            onChange={handleSort}
-            type="checkbox"
-            id="chackbox"
-            name="sort"
-            value="sort"
-            checked={props.sortCharacter}
-            defaultChecked={isSortChecked}
-          />
-          Sort alphabetically
-        </label> */}
       </form>
     </section>
   );

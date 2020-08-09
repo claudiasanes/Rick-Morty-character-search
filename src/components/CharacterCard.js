@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CharacterCard = (props) => {
+  const emojis = {
+    Human: '🧑🏾‍🤝‍🧑🏻',
+    Alien: '👽',
+  };
   return (
     <Link to={`/CharacterDetail/${props.id}`}>
       <li className="character__card">
@@ -9,7 +13,9 @@ const CharacterCard = (props) => {
           <img src={props.imgUrl} alt={props.name} />
         </div>
         <h2 className="character__card__name">{props.name}</h2>
-        <p className="character__card__species">{props.specie}</p>
+        <p className="character__card__species">
+          Species: {emojis[props.specie]}
+        </p>
       </li>
     </Link>
   );

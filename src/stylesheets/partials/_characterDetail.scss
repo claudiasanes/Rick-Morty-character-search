@@ -26,6 +26,21 @@
   left: -50px;
   font-weight: 900;
   color: black;
+  animation: floating-button 2s infinite ease-in-out;
+  @keyframes floating-button {
+    0% {
+      box-shadow: 0 5px 15px 0px transparentize($color-secondary, 0.4);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 5px 15px 0px transparentize($color-secondary, 0.4);
+      transform: scale(1.1);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px transparentize($color-secondary, 0.4);
+      transform: scale(1);
+    }
+  }
 }
 .icon {
   width: 20px;

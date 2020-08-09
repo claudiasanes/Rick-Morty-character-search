@@ -13,6 +13,7 @@ class App extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
+
     this.state = {
       characters: [],
       inputValue: '',
@@ -31,11 +32,12 @@ class App extends React.Component {
   }
 
   renderFilteredCharacters() {
-    return this.state.characters.filter((character) => {
+    const filteredNames = this.state.characters.filter((character) => {
       return character.name
         .toLowerCase()
         .includes(this.state.inputValue.toLowerCase());
     });
+    return filteredNames;
   }
 
   renderCharacterDetail(props) {
