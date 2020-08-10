@@ -1,9 +1,15 @@
 .character__list {
-  margin-top: 40px;
+  margin-top: 20px;
   height: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  @include tablet {
+    margin-top: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 .dont-exist {
@@ -14,14 +20,22 @@
 }
 
 .item__container--text {
-  margin: 40px;
+  margin: 20px;
   color: $color-terciary;
-  font-size: 40px;
+  font-size: 32px;
+  @include tablet {
+    margin: 40px;
+    color: $color-terciary;
+    font-size: 40px;
+  }
 }
 
 .empty-state-container {
   text-align: center;
-  width: 250px;
+  width: 200px;
+  @include tablet {
+    width: 250px;
+  }
 }
 
 .empty-state {

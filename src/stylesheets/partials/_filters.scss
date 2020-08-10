@@ -1,12 +1,15 @@
 .form__input {
-  width: 300px;
-  padding: 8px 20px;
-  margin: 56px 0px 0px;
+  width: 250px;
+  padding: 12px 20px;
   background-color: $color-secondary;
   border: none;
   border-radius: 100px;
 
   &:focus {
     outline: none;
+  }
+  @include tablet {
+    width: 350px;
+    margin: 56px 0px 0px;
   }
 }
