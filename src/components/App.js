@@ -10,13 +10,15 @@ import '../stylesheets/App.scss';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFilters = this.handleFilters.bind(this);
     this.renderFilteredCharacters = this.renderFilteredCharacters.bind(this);
     this.renderCharacterDetail = this.renderCharacterDetail.bind(this);
 
     this.state = {
       characters: [],
       inputValue: '',
+      species: 'all',
     };
   }
 
@@ -27,17 +29,16 @@ class App extends React.Component {
     });
   }
 
-  handleInputChange(inputValue) {
-    this.setState({ inputValue: inputValue });
+  handleFilters(characters) {
+    this.setState({ [characters.key]: characters.value });
   }
 
   renderFilteredCharacters() {
-    const filteredNames = this.state.characters.filter((character) => {
+    return this.state.characters.filter((character) => {
       return character.name
         .toLowerCase()
         .includes(this.state.inputValue.toLowerCase());
     });
-    return filteredNames;
   }
 
   renderCharacterDetail(props) {
@@ -68,8 +69,9 @@ class App extends React.Component {
         <Route exact path="/">
           <main className="main">
             <Filters
-              handleInputChange={this.handleInputChange}
+              handleInputChange={this.handleFilters}
               inputValue={this.state.inputValue}
+              filterSpecies={this.state.species}
             />
             <CharacterList characters={this.renderFilteredCharacters} />
           </main>

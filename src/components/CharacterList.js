@@ -8,7 +8,8 @@ const CharacterList = (props) => {
     characters.length === 0 ? (
       <div className="dont-exist">
         <h2 className="item__container--text">
-          This character doesn't exist is this universe, try in another one{' '}
+          {/* This character doesn't exist is this universe, try in another one{' '} */}
+          I'm sorry but your words means very little to me
         </h2>
         <div className="empty-state-container">
           <img className="empty-state" src={emptyState} alt="eee" />
