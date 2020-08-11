@@ -2,18 +2,21 @@ import React from 'react';
 
 const Filter = (props) => {
   const handleInputValue = (ev) => {
-    props.handleInputChange({ key: 'filterName', value: ev.target.value });
+    props.handleFilters({
+      key: 'inputValue',
+      value: ev.target.value,
+    });
+  };
+
+  const handleChangeSpecie = (ev) => {
+    props.handleFilters({
+      key: 'species',
+      value: ev.target.value,
+    });
   };
 
   const inputEnterHandler = (ev) => {
     ev.preventDefault();
-  };
-
-  const handleChangeSpecie = (ev) => {
-    props.handleFilter({
-      key: 'species',
-      value: ev.target.value,
-    });
   };
 
   return (
@@ -37,7 +40,7 @@ const Filter = (props) => {
           id="species"
           name="species"
           className="select-species"
-          value={props.speciesFilter}
+          value={props.species}
           onChange={handleChangeSpecie}
         >
           <option value="all">Todos</option>

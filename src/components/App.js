@@ -29,16 +29,24 @@ class App extends React.Component {
     });
   }
 
-  handleFilters(characters) {
-    this.setState({ [characters.key]: characters.value });
+  handleFilters(data) {
+    this.setState({ [data.key]: data.value });
   }
 
   renderFilteredCharacters() {
-    return this.state.characters.filter((character) => {
-      return character.name
-        .toLowerCase()
-        .includes(this.state.inputValue.toLowerCase());
-    });
+    return this.state.characters
+      .filter((character) => {
+        return character.name
+          .toLowerCase()
+          .includes(this.state.inputValue.toLowerCase());
+      })
+      .filter((character) => {
+        if (this.state.species === 'all') {
+          return true;
+        } else {
+          return character.species === this.state.species;
+        }
+      });
   }
 
   renderCharacterDetail(props) {
@@ -62,16 +70,16 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return (
       <div className="App">
         <Header />
         <Route exact path="/">
           <main className="main">
             <Filters
-              handleInputChange={this.handleFilters}
+              handleFilters={this.handleFilters}
               inputValue={this.state.inputValue}
-              filterSpecies={this.state.species}
+              species={this.state.species}
             />
             <CharacterList characters={this.renderFilteredCharacters} />
           </main>
