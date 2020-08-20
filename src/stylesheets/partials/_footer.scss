@@ -1,0 +1,21 @@
+.footer {
+  margin-top: 40px;
+  background-color: black;
+  padding: 16px;
+
+  &__text {
+    color: white;
+    &__link {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.fa-heart {
+  color: red;
+}
+
+.fa-github {
+  color: lightskyblue;
+}

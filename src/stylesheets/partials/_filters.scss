@@ -13,3 +13,30 @@
     margin: 56px 0px 0px;
   }
 }
+
+.label-species {
+  margin: 56px;
+  color: white;
+  font-weight: bold;
+}
+
+.select-species {
+  margin-left: 16px;
+  background-color: $color-secondary;
+  border-radius: 6px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.sort__label {
+  color: white;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.sort__input {
+  width: 24px;
+  height: 24px;
+}

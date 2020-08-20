@@ -6,6 +6,7 @@ import Filters from './Filters';
 import CharacterDetail from './CharacterDetail';
 import CharacterList from './CharacterList';
 import '../stylesheets/App.scss';
+import Footer from './Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class App extends React.Component {
     this.state = {
       characters: [],
       inputValue: '',
-      species: 'all',
+      status: 'all',
+      isSorted: false,
     };
   }
 
@@ -41,10 +43,18 @@ class App extends React.Component {
           .includes(this.state.inputValue.toLowerCase());
       })
       .filter((character) => {
-        if (this.state.species === 'all') {
+        if (this.state.status === 'all') {
           return true;
         } else {
-          return character.species === this.state.species;
+          return character.status === this.state.status;
+        }
+      })
+
+      .sort((a, b) => {
+        if (this.state.isSorted !== true) {
+          return 0;
+        } else {
+          return a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1;
         }
       });
   }
@@ -79,7 +89,8 @@ class App extends React.Component {
             <Filters
               handleFilters={this.handleFilters}
               inputValue={this.state.inputValue}
-              species={this.state.species}
+              status={this.state.status}
+              isSorted={this.state.isSorted}
             />
             <CharacterList characters={this.renderFilteredCharacters} />
           </main>
@@ -90,6 +101,7 @@ class App extends React.Component {
             render={this.renderCharacterDetail}
           ></Route>
         </Switch>
+        <Footer />
       </div>
     );
   }

@@ -8,10 +8,17 @@ const Filter = (props) => {
     });
   };
 
-  const handleChangeSpecie = (ev) => {
+  const handleChangeStatus = (ev) => {
     props.handleFilters({
-      key: 'species',
+      key: 'status',
       value: ev.target.value,
+    });
+  };
+
+  const handleSortChild = (ev) => {
+    props.handleFilters({
+      key: 'isSorted',
+      value: ev.target.checked,
     });
   };
 
@@ -34,19 +41,32 @@ const Filter = (props) => {
           />
         </label>
         <label htmlFor="species" className="label-species ">
-          Filtrar por especie
+          Filter by status
+          <select
+            id="species"
+            name="species"
+            className="select-species"
+            value={props.status}
+            onChange={handleChangeStatus}
+          >
+            <option value="all">All</option>
+            <option value="Alive">Alive</option>
+            <option value="Dead">Dead</option>
+            <option value="Unknown">Unknown</option>
+          </select>
         </label>
-        <select
-          id="species"
-          name="species"
-          className="select-species"
-          value={props.species}
-          onChange={handleChangeSpecie}
-        >
-          <option value="all">Todos</option>
-          <option value="Alien">Alienígena</option>
-          <option value="Human">Humano</option>
-        </select>
+        <label htmlFor="sort" className="sort__label">
+          A - Z:{' '}
+        </label>
+        <input
+          className="sort__input"
+          unchecked="true"
+          type="checkbox"
+          id="sort"
+          name="isSorted"
+          checked={props.isSorted}
+          onChange={handleSortChild}
+        />
       </form>
     </section>
   );
